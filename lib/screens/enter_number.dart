@@ -1,12 +1,17 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:live_easy_assignment/app/core/values/colors.dart';
+import 'package:live_easy_assignment/screens/verify_number.dart';
 
 class EnterNumber extends StatelessWidget {
   final formKey = GlobalKey();
   EnterNumber({Key? key}) : super(key: key);
+
+  TextEditingController phoneNumber = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +60,9 @@ class EnterNumber extends StatelessWidget {
                           labelText: '- Mobile number',
                           border: OutlineInputBorder(borderSide: BorderSide())),
                       initialCountryCode: 'IN',
+                      controller: phoneNumber,
                       onChanged: (phone) {
-                        phone.completeNumber;
+                        phone.completeNumber;                        
                       },
                     ),
                   ),
@@ -64,7 +70,9 @@ class EnterNumber extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           minimumSize: Size(328.w, 40.h),
                           primary: AppColors.buttonColor),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => VerifyNumber(phoneNumber.text));
+                      },
                       child: Text(
                         'Continue'.toUpperCase(),
                         style:
