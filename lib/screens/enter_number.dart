@@ -62,7 +62,7 @@ class EnterNumber extends StatelessWidget {
                       initialCountryCode: 'IN',
                       controller: phoneNumber,
                       onChanged: (phone) {
-                        phone.completeNumber;                        
+                        phone.completeNumber;
                       },
                     ),
                   ),
@@ -71,7 +71,8 @@ class EnterNumber extends StatelessWidget {
                           minimumSize: Size(328.w, 40.h),
                           primary: AppColors.buttonColor),
                       onPressed: () {
-                        Get.to(() => VerifyNumber(phoneNumber.text));
+                        print('+234${phoneNumber.text}');
+                        Get.to(() => VerifyNumber('+234${phoneNumber.text}'));
                       },
                       child: Text(
                         'Continue'.toUpperCase(),

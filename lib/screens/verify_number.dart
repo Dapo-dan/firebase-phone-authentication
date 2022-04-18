@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:live_easy_assignment/app/core/values/colors.dart';
+import 'package:live_easy_assignment/screens/select_profile.dart';
 import 'package:pinput/pinput.dart';
 
 class VerifyNumber extends StatefulWidget {
@@ -23,15 +25,13 @@ class _VerifyNumberState extends State<VerifyNumber> {
       borderRadius: BorderRadius.circular(10),
       border: Border.all(color: const Color.fromARGB(126, 203, 224, 1)));
   final defaultPinTheme = PinTheme(
-    width: 56,
-    height: 56,
-    textStyle: const TextStyle(
-        fontSize: 20,
-        color: Color.fromRGBO(30, 60, 87, 1),
-        fontWeight: FontWeight.w600),
+    width: 48.w,
+    height: 48.w,
+    textStyle: TextStyle(
+        fontSize: 20.sp, color: AppColors.black, fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
-      border: Border.all(color: const Color.fromRGBO(234, 239, 243, 1)),
-      borderRadius: BorderRadius.circular(20),
+      color: AppColors.verifyBox,
+      border: Border.all(color: AppColors.verifyBox),
     ),
   );
 
@@ -80,12 +80,13 @@ class _VerifyNumberState extends State<VerifyNumber> {
                       AndroidSmsAutofillMethod.smsRetrieverApi,
                   focusNode: _pinPutFocusNode,
                   controller: _pinPutController,
+                  defaultPinTheme: defaultPinTheme,
                   focusedPinTheme: defaultPinTheme.copyDecorationWith(
                     border: Border.all(color: AppColors.verifyBox),
                   ),
                   submittedPinTheme: defaultPinTheme.copyWith(
                       decoration: defaultPinTheme.decoration!.copyWith(
-                    color: const Color.fromRGBO(234, 239, 243, 1),
+                    color: AppColors.verifyBox,
                   )),
                   onSubmitted: (pin) async {
                     try {
@@ -138,7 +139,9 @@ class _VerifyNumberState extends State<VerifyNumber> {
                   style: ElevatedButton.styleFrom(
                       minimumSize: Size(328.w, 40.h),
                       primary: AppColors.buttonColor),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const SelectProfile());
+                  },
                   child: Text(
                     'Verify and continue'.toUpperCase(),
                     style: TextStyle(fontSize: 20.0.sp, color: Colors.white),
