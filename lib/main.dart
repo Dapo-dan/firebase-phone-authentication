@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:live_easy_assignment/app/core/values/colors.dart';
 
 import 'package:live_easy_assignment/screens/select_language.dart';
+import 'package:live_easy_assignment/screens/select_profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,10 +31,8 @@ class MyApp extends StatelessWidget {
                       iconTheme: IconThemeData(color: Colors.black)),
                   scaffoldBackgroundColor: AppColors.white,
                   backgroundColor: AppColors.white),
-              // translations: LocaleString(),
-              // locale: Locale('en','US'),
               debugShowCheckedModeBanner: false,
-              home: const SelectLanguage(),
+              home: const SelectProfile(),
             ),
         designSize: const Size(360, 640));
   }
