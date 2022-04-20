@@ -6,7 +6,6 @@ import 'package:get_storage/get_storage.dart';
 import 'package:live_easy_assignment/app/core/values/colors.dart';
 
 import 'package:live_easy_assignment/screens/select_language.dart';
-import 'package:live_easy_assignment/screens/select_profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
                   scaffoldBackgroundColor: AppColors.white,
                   backgroundColor: AppColors.white),
               debugShowCheckedModeBanner: false,
-              home: const SelectProfile(),
+              home: const SelectLanguage(),
             ),
         designSize: const Size(360, 640));
   }

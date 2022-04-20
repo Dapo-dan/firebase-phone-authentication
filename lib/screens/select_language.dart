@@ -10,60 +10,82 @@ class SelectLanguage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SafeArea(
-            child: Center(
-          child: Column(
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: SafeArea(
+                child: Center(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 100.0.h, bottom: 40.0.h),
+                    child: Icon(
+                      Icons.crop_original,
+                      size: 70.0.w,
+                    ),
+                  ),
+                  Column(children: [
+                    Text(
+                      'Please select your Language',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25.0.sp,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Text(
+                      'You can change the language \nat any time',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15.0.sp, color: Colors.grey),
+                    )
+                  ]),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 25.h),
+                    child: Container(
+                      width: 216.w,
+                      height: 40.h,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                    ),
+                  ),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(216.w, 40.h),
+                          primary: AppColors.buttonColor),
+                      onPressed: () {
+                        Get.to(() => EnterNumber());
+                      },
+                      child: Text(
+                        'NEXT',
+                        style:
+                            TextStyle(fontSize: 20.0.sp, color: Colors.white),
+                      )),
+                ],
+              ),
+            )),
+          ),
+          Expanded(child: Container()),
+          Stack(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 100.0.h, bottom: 40.0.h),
-                child: Icon(
-                  Icons.crop_original,
-                  size: 70.0.w,
-                ),
-              ),
-              Column(children: [
-                Text(
-                  'Please select your Language',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25.0.sp,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Text(
-                  'You can change the language \nat any time',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15.0.sp, color: Colors.grey),
-                )
-              ]),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 25.h),
-                child: Container(
-                  width: 216.w,
-                  height: 40.h,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.grey)),
-                ),
-              ),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(216.w, 40.h),
-                      primary: AppColors.buttonColor),
-                  onPressed: () {
-                    Get.to(() => EnterNumber());
-                  },
-                  child: Text(
-                    'NEXT',
-                    style: TextStyle(fontSize: 20.0.sp, color: Colors.white),
-                  ))
+              Transform.scale(
+                  scale: 1.27,
+                  child: Image.asset('assets/images/Vector_1.png')),
+              Container(
+                padding: EdgeInsets.only(top: 5.h),
+                child: Transform.scale(
+                    scale: 1.27,
+                    child: Image.asset('assets/images/Vector_2.png')),
+              )
             ],
           ),
-        )),
+          SizedBox(
+            height: 10.h,
+          )
+        ],
       ),
     );
   }
