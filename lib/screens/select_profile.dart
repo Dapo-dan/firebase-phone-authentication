@@ -12,7 +12,7 @@ class SelectProfile extends StatefulWidget {
 }
 
 class _SelectProfileState extends State<SelectProfile> {
-  SingingCharacter? _character = SingingCharacter.shipper;
+  SingingCharacter? _character;
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:live_easy_assignment/app/core/values/colors.dart';
 import 'package:live_easy_assignment/screens/verify_number.dart';
 
@@ -12,6 +13,7 @@ class EnterNumber extends StatelessWidget {
   EnterNumber({Key? key}) : super(key: key);
 
   TextEditingController phoneNumber = TextEditingController();
+  late PhoneNumber _phoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +68,27 @@ class EnterNumber extends StatelessWidget {
                       },
                     ),
                   ),
+                  // Padding(
+                  //     padding: EdgeInsets.only(top: 32.h, bottom: 24.h),
+                  //     child: InternationalPhoneNumberInput(
+                  //       onInputChanged: (PhoneNumber number) {
+                  //         print(number.phoneNumber);
+                  //         _phoneNumber =
+                  //             number.phoneNumber.toString() as PhoneNumber;
+                  //       },
+                  //       onInputValidated: (bool value) {
+                  //         print(value);
+                  //       },
+                  //       selectorConfig: const SelectorConfig(
+                  //           selectorType: PhoneInputSelectorType.BOTTOM_SHEET),
+                  //       ignoreBlank: false,
+                  //       inputBorder: const OutlineInputBorder(),
+                  //       autoValidateMode: AutovalidateMode.disabled,
+                  //       formatInput: false,
+                  //       onSaved: (PhoneNumber number) {
+                  //         print('On Saved: $number');
+                  //       },
+                  //     )),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           minimumSize: Size(328.w, 40.h),

@@ -1,5 +1,6 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -94,17 +95,9 @@ class _VerifyNumberState extends State<VerifyNumber> {
                           .signInWithCredential(PhoneAuthProvider.credential(
                               verificationId: _verificationCode, smsCode: pin))
                           .then((value) async {
-                        CupertinoAlertDialog(
-                          title: const Text("Phone Authentication"),
-                          content: const Text("Phone Number verified!!!"),
-                          actions: [
-                            CupertinoButton(
-                                child: const Text('Close'),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                }),
-                          ],
-                        );
+                        if (value.user != null) {
+                          Get.to(const SelectProfile());
+                        }
                       });
                     } catch (e) {
                       FocusScope.of(context).unfocus();
@@ -158,17 +151,9 @@ class _VerifyNumberState extends State<VerifyNumber> {
           await FirebaseAuth.instance
               .signInWithCredential(credential)
               .then((value) async {
-            CupertinoAlertDialog(
-              title: const Text("Phone Authentication"),
-              content: const Text("Phone Number verified!!!"),
-              actions: [
-                CupertinoButton(
-                    child: const Text('Close'),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    }),
-              ],
-            );
+            if (value.user != null) {
+              Get.to(const SelectProfile());
+            }
           });
         },
         verificationFailed: (FirebaseAuthException e) {
