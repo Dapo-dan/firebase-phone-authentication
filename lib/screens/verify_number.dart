@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, avoid_print
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -89,14 +89,14 @@ class _VerifyNumberState extends State<VerifyNumber> {
                       decoration: defaultPinTheme.decoration!.copyWith(
                     color: AppColors.verifyBox,
                   )),
-                  onSubmitted: (pin) async {
+                  onCompleted: (pin) async {
                     try {
                       await FirebaseAuth.instance
                           .signInWithCredential(PhoneAuthProvider.credential(
                               verificationId: _verificationCode, smsCode: pin))
                           .then((value) async {
                         if (value.user != null) {
-                          Get.to(const SelectProfile());
+                          Get.to(() => SelectProfile);
                         }
                       });
                     } catch (e) {
@@ -133,7 +133,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
                       minimumSize: Size(328.w, 40.h),
                       primary: AppColors.buttonColor),
                   onPressed: () {
-                    Get.to(() => const SelectProfile());
+                    Get.to(() => SelectProfile);
                   },
                   child: Text(
                     'Verify and continue'.toUpperCase(),
