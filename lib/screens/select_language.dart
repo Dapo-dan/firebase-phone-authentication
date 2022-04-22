@@ -110,7 +110,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                         minimumSize: Size(216.w, 40.h),
                         primary: AppColors.buttonColor),
                     onPressed: () {
-                      Get.to(() => EnterNumber);
+                      Get.to(() => const EnterNumber());
                     },
                     child: Text(
                       'NEXT',

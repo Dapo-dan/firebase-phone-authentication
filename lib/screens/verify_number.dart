@@ -96,7 +96,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
                               verificationId: _verificationCode, smsCode: pin))
                           .then((value) async {
                         if (value.user != null) {
-                          Get.to(() => SelectProfile);
+                          Get.to(() => const SelectProfile());
                         }
                       });
                     } catch (e) {
@@ -133,7 +133,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
                       minimumSize: Size(328.w, 40.h),
                       primary: AppColors.buttonColor),
                   onPressed: () {
-                    Get.to(() => SelectProfile);
+                    Get.to(() => const SelectProfile());
                   },
                   child: Text(
                     'Verify and continue'.toUpperCase(),
@@ -152,7 +152,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
               .signInWithCredential(credential)
               .then((value) async {
             if (value.user != null) {
-              Get.to(const SelectProfile());
+              Get.to(() => const SelectProfile());
             }
           });
         },
